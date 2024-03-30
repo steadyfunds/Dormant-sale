@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dormant Account Sale</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  h1 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  .btc-address {
+    font-family: monospace;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    display: inline-block;
+  }
+  .copy-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .copy-button:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Dormant Account Sale</h1>
+  <p>Purchase a Dormant Account for €5,000</p>
+
+  <div>
+    <h2>Checkout Process:</h2>
+    <p>1. Payment Method: Bitcoin (BTC)</p>
+    <p>2. BTC Address:</p>
+    <div class="btc-address" id="btc-address">1Cyc94rGuXkRKE1XmYtxAU9zGke39UjGvq</div>
+    <button class="copy-button" onclick="copyAddress()">Copy Address</button>
+    <p>3. Instructions: Send BTC payment to the provided address.</p>
+    <p>4. Upload Receipt: After sending payment, upload your receipt for verification.</p>
+  </div>
+
+  <div class="receipt-upload">
+    <input type="file" id="receipt" accept="image/*">
+    <label for="receipt">Upload Receipt</label>
+  </div>
+</div>
+
+<script>
+function copyAddress() {
+  var btcAddress = document.getElementById("btc-address");
+  var range = document.createRange();
+  range.selectNode(btcAddress);
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
+  document.execCommand("copy");
+  window.getSelection().removeAllRanges();
+  alert("Address copied to clipboard!");
+}
+</script>
+
+</body>
+</html>
